@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С 8 Марта, Любимая! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Элегантные шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Кастомный курсор -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Кнопка фоновой музыки -->
+    <button id="music-btn" class="glass-btn" title="Включить музыку">🎵</button>
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_f5024222cb.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 1. Главный экран -->
+    <section id="hero">
+        <div class="hero-content glass hidden">
+            <h1 class="glow-text">С 8 Марта, моя нежность ❤️</h1>
+            <p>Этот сайт создан только для одной девушки во всей Вселенной.</p>
+            <a href="#reasons" class="btn">Узнать больше ✨</a>
+        </div>
+    </section>
+
+    <!-- 2. Три главные причины (текстовые карточки) -->
+    <section id="reasons">
+        <h2 class="section-title hidden">Ты невероятная, потому что... 🌸</h2>
+        <div class="cards-container">
+            <div class="card glass hidden">
+                <div class="icon">✨</div>
+                <h3>Твоя улыбка</h3>
+                <p>Она освещает мой день, согревает в любые холода и заставляет забыть обо всех проблемах.</p>
+            </div>
+            <div class="card glass hidden delay-1">
+                <div class="icon">💖</div>
+                <h3>Твоя душа</h3>
+                <p>У тебя самое доброе, искреннее и чуткое сердце из всех, что я когда-либо встречал.</p>
+            </div>
+            <div class="card glass hidden delay-2">
+                <div class="icon">🌹</div>
+                <h3>Твой свет</h3>
+                <p>Ты вдохновляешь меня быть лучше каждый день. Просто находясь рядом, ты делаешь этот мир прекраснее.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Романтическое послание (эффект печати текста) -->
+    <section id="message">
+        <div class="message-box glass hidden">
+            <h2 class="section-title">Мое послание тебе 💌</h2>
+            <!-- Текст сюда будет печататься через JavaScript -->
+            <p id="typewriter-text"></p>
+        </div>
+    </section>
+
+    <!-- 4. Интерактивный блок -->
+    <section id="interactive">
+        <div class="interactive-content hidden">
+            <h2>И еще кое-что очень важное... 😉</h2>
+            <button id="love-btn" class="btn pulse">Нажми сюда</button>
+            <h3 id="love-message" class="hidden-message">Я БЕЗУМНО ТЕБЯ ЛЮБЛЮ! И это навсегда! ♾️❤️</h3>
+        </div>
+    </section>
+
+    <!-- 5. Финал -->
+    <section id="footer">
+        <h1 class="glow-text final-text hidden">С твоим днем, моя королева! 🌷</h1>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

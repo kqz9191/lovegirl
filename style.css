@@ -1,0 +1,268 @@
+/* --- Переменные и База --- */
+:root {
+    --pink-light: #ffd1ff;
+    --pink-main: #ff9a9e;
+    --purple-light: #c2e9fb;
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    /* Плавный переливающийся фон */
+    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Кастомный курсор --- */
+.cursor {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s;
+}
+.cursor-follower {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease-out;
+    margin-left: -11px;
+    margin-top: -11px;
+}
+
+/* --- Матовое стекло (Glassmorphism) --- */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* --- Кнопки --- */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    margin-top: 25px;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 10px 20px rgba(255, 117, 140, 0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(255, 117, 140, 0.6);
+}
+
+#music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 24px;
+    z-index: 1000;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s;
+}
+#music-btn:hover { transform: scale(1.1); }
+
+/* --- Анимации появления при скролле --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* --- Секции --- */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Главный экран */
+.hero-content {
+    text-align: center;
+    padding: 60px;
+    max-width: 800px;
+}
+.glow-text {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 154, 158, 0.8);
+}
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Карточки причин */
+.cards-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+}
+.card {
+    padding: 50px 30px;
+    width: 320px;
+    text-align: center;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.4);
+}
+.card .icon {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+.card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* Печатная машинка (Послание) */
+.message-box {
+    padding: 70px 50px;
+    max-width: 900px;
+    text-align: center;
+}
+#typewriter-text {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    min-height: 150px; /* Чтобы секция не дергалась при печати */
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Интерактивный клик */
+.interactive-content {
+    text-align: center;
+    padding: 40px;
+}
+.interactive-content h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 117, 140, 0.8); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 25px rgba(255, 117, 140, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 117, 140, 0); }
+}
+.hidden-message {
+    margin-top: 40px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hidden-message.show-msg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Плавающие анимации частиц */
+.floating-particle {
+    position: fixed;
+    top: 100vh;
+    font-size: 20px;
+    user-select: none;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: 1;
+    opacity: 0.7;
+}
+@keyframes floatUp {
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 768px) {
+    .glow-text { font-size: 3rem; }
+    .section-title { font-size: 2.5rem; }
+    .hero-content { padding: 40px 20px; }
+    .message-box { padding: 40px 20px; }
+    #typewriter-text { font-size: 1.3rem; }
+    .card { width: 100%; max-width: 350px; }
+    .hidden-message { font-size: 1.8rem; }
+    .cursor, .cursor-follower { display: none; } /* Отключаем курсор на мобильных */
+    * { cursor: auto; }
+}
